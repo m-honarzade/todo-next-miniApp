@@ -1,4 +1,5 @@
 import AddTodo from "@/components/todos/AddTodo";
+import Todo from "@/components/todos/Todo";
 import { prisma } from "@/utils/prisma";
 
 export async function getData() {
@@ -30,7 +31,9 @@ export default async function Home() {
         {/*MAP DATA */}
         <div className="text-white flex flex-col gap-5 w-full justify-center items-center mt-10">
           {data.map((todo) => (
-            <div key={todo.id}>{todo.title}</div>
+            <div key={todo.id}>
+              <Todo todo={todo} />
+            </div>
           ))}
         </div>
       </main>
