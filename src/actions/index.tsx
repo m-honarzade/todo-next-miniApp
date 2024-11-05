@@ -29,3 +29,17 @@ export async function changeStatus(formData: FormData) {
   });
   revalidatePath("/");
 }
+
+export async function editTodo(formData: FormData) {
+  const editedTitle = formData.get("newTitle") as string;
+  const inputId = formData.get("inputId") as string;
+  await prisma.todo.update({
+    where: {
+      id: inputId,
+    },
+    data: {
+      title: editedTitle,
+    },
+  });
+  revalidatePath("/");
+}

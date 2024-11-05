@@ -10,7 +10,7 @@ export async function getData() {
       isCompleted: true,
     },
     orderBy: {
-      createdAt: "asc",
+      createdAt: "desc",
     },
   });
   return data;
