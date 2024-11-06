@@ -11,6 +11,9 @@ import * as actions from "@/actions";
 const EditTodo = ({ todo }: { todo: todoProps }) => {
   const [editTodo, setEditTodo] = useState(false);
   const handelEdit = () => {
+    if (todo.isCompleted) {
+      return;
+    }
     setEditTodo((prevState) => !prevState);
   };
   const submitHandler = () => {
