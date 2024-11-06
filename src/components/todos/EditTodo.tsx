@@ -20,8 +20,8 @@ const EditTodo = ({ todo }: { todo: todoProps }) => {
     setEditTodo(false);
   };
   return (
-    <div className="">
-      <Button text={<MdEdit />} onClick={handelEdit} />
+    <div className="flex flex-row justify-center items-center">
+      {!editTodo && <Button text={<MdEdit />} onClick={handelEdit} />}
       {editTodo && (
         <Form action={actions.editTodo} onSubmit={submitHandler}>
           <Input type="hidden" name="inputId" value={todo.id} />
